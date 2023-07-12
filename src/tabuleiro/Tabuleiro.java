@@ -11,7 +11,7 @@ public class Tabuleiro {
 		}
 		this.linhas = linhas;
 		this.colunas = colunas;
-		pecas = new Peca[linhas][colunas];
+		this.pecas = new Peca[linhas][colunas];
 	}
 
 	public int getLinhas() {
@@ -37,7 +37,7 @@ public class Tabuleiro {
 	}
 	
 	public void porPeca(Peca peca, Posicao posicao) {
-		if(existePosicao(posicao)) {
+		if(!existePosicao(posicao)) {
 			throw new TabuleiroException("Ja existe uma peca na posicao " + posicao);
 		}
 		pecas[posicao.getLinha()][posicao.getColuna()]= peca;
