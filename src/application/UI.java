@@ -1,7 +1,11 @@
 package application;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import xadrez.Cor;
 import xadrez.PecaXadrez;
+import xadrez.PosicaoXadrez;
  
 public class UI {
 	// https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println
@@ -30,7 +34,18 @@ public class UI {
 		System.out.print("\033[H\033[2J");
 		System.out.flush();
 	}	
-		
+	
+	public static PosicaoXadrez lerPosicaoXadrez(Scanner sc) {
+		try {
+			String s =sc.nextLine();
+			char coluna = s.charAt(0);
+			int linha = Integer.parseInt(s.substring(1));
+			return new PosicaoXadrez(coluna, linha);
+		}catch(RuntimeException e){
+			throw new InputMismatchException("Erro lendo a posicao. Os valores validos sao entre a1 e h8.");
+		}
+	}
+	
 	public static void printTabuleiro(PecaXadrez[][] pecas) {
 		for(int i=0; i<pecas.length; i++) {
 			System.out.print((8-i)+" ");
