@@ -35,7 +35,7 @@ public class UI {
 		System.out.flush();
 	}	
 	
-	public static PosicaoXadrez lerPosicaoXadrez(Scanner sc) {
+	public static PosicaoXadrez lerPosicaoXadrez(Scanner sc) {//Novo
 		try {
 			String s =sc.nextLine();
 			char coluna = s.charAt(0);

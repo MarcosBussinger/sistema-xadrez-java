@@ -28,7 +28,7 @@ public class PartidaXadrez {
 		return mat;
 	}
 	
-	public PecaXadrez executarJogadaXadrez(PosicaoXadrez posicaoOrigem, PosicaoXadrez posicaoDestino) {
+	public PecaXadrez executarJogadaXadrez(PosicaoXadrez posicaoOrigem, PosicaoXadrez posicaoDestino) {//Novo
 		Posicao origem = posicaoOrigem.paraPosicao();
 		Posicao destino = posicaoDestino.paraPosicao();
 		validarPosicaoOrigem(origem);
@@ -36,14 +36,14 @@ public class PartidaXadrez {
 		return (PecaXadrez)pecaCapturada;
 	}
 	
-	private Peca fazerMovimento(Posicao origem, Posicao destino) {
+	private Peca fazerMovimento(Posicao origem, Posicao destino) {//Novo
 		Peca p = tabuleiro.removePeca(origem);
 		Peca pecaCapturada = tabuleiro.removePeca(destino);
 		tabuleiro.porPeca(p, destino);
 		return pecaCapturada;
 	}
 	
-	private void validarPosicaoOrigem(Posicao posicao) {
+	private void validarPosicaoOrigem(Posicao posicao) {//Novo
 		if(!tabuleiro.eUmaPeca(posicao)) {
 			throw new XadrezException("Nao ha peça na posicao");
 		}

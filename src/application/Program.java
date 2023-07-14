@@ -11,7 +11,7 @@ public class Program {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		PartidaXadrez partidaXadrez = new PartidaXadrez();
-		while(true) {
+		while(true) {//Novo
 			UI.printTabuleiro(partidaXadrez.getPecas());
 			System.out.println();
 			System.out.print("Origem: ");

@@ -44,7 +44,7 @@ public class Tabuleiro {
 		peca.posicao = posicao;
 	}
 	
-	public Peca removePeca(Posicao posicao) {
+	public Peca removePeca(Posicao posicao) {//Novo
 		if(!existePosicao(posicao)) {
 			throw new TabuleiroException("Posicao fora do Tabuleiro");
 		}
