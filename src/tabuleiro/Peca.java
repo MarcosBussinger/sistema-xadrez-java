@@ -1,6 +1,6 @@
 package tabuleiro;
 
-public class Peca {
+public abstract class Peca {
 	protected Posicao posicao;
 	private Tabuleiro tabuleiro;
 	
@@ -11,5 +11,10 @@ public class Peca {
 	public Tabuleiro getTabuleiro() {
 		return tabuleiro;
 	}
+
+	public abstract boolean[][] possiveisMovimentos();
 	
+	public boolean possiveisMovimentos(Posicao posicao) {
+		return possiveisMovimentos()[posicao.getLinha()][posicao.getColuna()];
+	}
 }

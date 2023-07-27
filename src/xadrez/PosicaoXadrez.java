@@ -11,7 +11,7 @@ public class PosicaoXadrez {
 
 	public PosicaoXadrez(char coluna, int linha) {
 		if(coluna<'a' || coluna >'h' || linha<1 || linha>8) {
-			throw new XadrezException("Posicao nao existente no tabuleiro");
+			throw new XadrezException("Posição não existente no tabuleiro");
 		}
 		this.coluna = coluna;
 		this.linha = linha;

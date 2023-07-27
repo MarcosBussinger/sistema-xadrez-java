@@ -43,9 +43,6 @@ public class UI {
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
-		//System.out.print("\033[H\033[2J");
-		//System.out.flush();
-		//System.out.print("\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n");
 	}
 	
 	public static PosicaoXadrez lerPosicaoXadrez(Scanner sc) {//Novo
