@@ -69,7 +69,7 @@ public class PartidaXadrez {
         novaPosicao('f', 1, new Bispo(tabuleiro, Cor.WHITE));
         novaPosicao('g', 1, new Cavalo(tabuleiro, Cor.WHITE));
         novaPosicao('h', 1, new Torre(tabuleiro, Cor.WHITE));
-        novaPosicao('a', 2, new Peao(tabuleiro, Cor.WHITE));
+        //novaPosicao('a', 2, new Peao(tabuleiro, Cor.WHITE));
         novaPosicao('b', 2, new Peao(tabuleiro, Cor.WHITE));
         novaPosicao('c', 2, new Peao(tabuleiro, Cor.WHITE));
         novaPosicao('d', 2, new Peao(tabuleiro, Cor.WHITE));
