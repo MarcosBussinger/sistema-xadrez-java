@@ -31,26 +31,8 @@ public class Rei extends PecaXadrez{
 			mat[p.getLinha()][p.getColuna()] = true;
 		}
 
-		//Acima-esquerda
-		p.setValores(posicao.getLinha() - 1, posicao.getColuna()- 1);
-		if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p)) {
-			mat[p.getLinha()][p.getColuna()] = true;
-		}
-		if (getTabuleiro().existePosicao(p) && existePecaOponete(p)) {
-			mat[p.getLinha()][p.getColuna()] = true;
-		}
-
 		//Esquerda
 		p.setValores(posicao.getLinha(), posicao.getColuna() - 1);
-		if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p)) {
-			mat[p.getLinha()][p.getColuna()] = true;
-		}
-		if (getTabuleiro().existePosicao(p) && existePecaOponete(p)) {
-			mat[p.getLinha()][p.getColuna()] = true;
-		}
-
-		//Acima-direita
-		p.setValores(posicao.getLinha() - 1, posicao.getColuna() + 1);
 		if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p)) {
 			mat[p.getLinha()][p.getColuna()] = true;
 		}
@@ -76,8 +58,17 @@ public class Rei extends PecaXadrez{
 			mat[p.getLinha()][p.getColuna()] = true;
 		}
 
-		//Baixo-esquerda
-		p.setValores(posicao.getLinha() + 1, posicao.getColuna() - 1);
+		//Acima-direita
+		p.setValores(posicao.getLinha() - 1, posicao.getColuna() + 1);
+		if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p)) {
+			mat[p.getLinha()][p.getColuna()] = true;
+		}
+		if (getTabuleiro().existePosicao(p) && existePecaOponete(p)) {
+			mat[p.getLinha()][p.getColuna()] = true;
+		}
+
+		//Acima-esquerda
+		p.setValores(posicao.getLinha() - 1, posicao.getColuna()- 1);
 		if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p)) {
 			mat[p.getLinha()][p.getColuna()] = true;
 		}
@@ -93,6 +84,16 @@ public class Rei extends PecaXadrez{
 		if (getTabuleiro().existePosicao(p) && existePecaOponete(p)) {
 			mat[p.getLinha()][p.getColuna()] = true;
 		}
+
+		//Baixo-esquerda
+		p.setValores(posicao.getLinha() + 1, posicao.getColuna() - 1);
+		if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p)) {
+			mat[p.getLinha()][p.getColuna()] = true;
+		}
+		if (getTabuleiro().existePosicao(p) && existePecaOponete(p)) {
+			mat[p.getLinha()][p.getColuna()] = true;
+		}
+		
 		return mat;
 	}
 }
