@@ -23,7 +23,7 @@ public class Cavalo extends PecaXadrez{
 		Posicao p = new Posicao(0, 0);
 		
 		//Cima direita
-		p.setValores(p.getLinha() - 2, p.getColuna() + 1);
+		p.setValores(posicao.getLinha() - 2, posicao.getColuna() + 1);
 		if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p)) {
 			mat[p.getLinha()][p.getColuna()] = true;
 		}
@@ -32,7 +32,7 @@ public class Cavalo extends PecaXadrez{
 		}
 
 		//Direita cima
-		p.setValores(p.getLinha() - 1, p.getColuna() + 2);
+		p.setValores(posicao.getLinha() - 1, posicao.getColuna() + 2);
 		if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p)) {
 			mat[p.getLinha()][p.getColuna()] = true;
 		}
@@ -41,7 +41,7 @@ public class Cavalo extends PecaXadrez{
 		}
 
 		//Direita baixo
-		p.setValores(p.getLinha() + 1, p.getColuna() + 2);
+		p.setValores(posicao.getLinha() + 1, posicao.getColuna() + 2);
 		if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p)) {
 			mat[p.getLinha()][p.getColuna()] = true;
 		}
@@ -50,7 +50,7 @@ public class Cavalo extends PecaXadrez{
 		}
 
 		//Baixo direita
-		p.setValores(p.getLinha() + 2, p.getColuna() + 1);
+		p.setValores(posicao.getLinha() + 2, posicao.getColuna() + 1);
 		if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p)) {
 			mat[p.getLinha()][p.getColuna()] = true;
 		}
@@ -59,7 +59,7 @@ public class Cavalo extends PecaXadrez{
 		}
 
 		//Baixo esquerda
-		p.setValores(p.getLinha() + 2, p.getColuna() - 1);
+		p.setValores(posicao.getLinha() + 2, posicao.getColuna() - 1);
 		if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p)) {
 			mat[p.getLinha()][p.getColuna()] = true;
 		}
@@ -68,7 +68,7 @@ public class Cavalo extends PecaXadrez{
 		}
 
 		//Esquerda baixo
-		p.setValores(p.getLinha() + 1, p.getColuna() - 2);
+		p.setValores(posicao.getLinha() + 1, posicao.getColuna() - 2);
 		if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p)) {
 			mat[p.getLinha()][p.getColuna()] = true;
 		}
@@ -77,7 +77,7 @@ public class Cavalo extends PecaXadrez{
 		}
 
 		//Esquerda baixo
-		p.setValores(p.getLinha() - 1, p.getColuna() - 2);
+		p.setValores(posicao.getLinha() - 1, posicao.getColuna() - 2);
 		if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p)) {
 			mat[p.getLinha()][p.getColuna()] = true;
 		}
@@ -86,7 +86,7 @@ public class Cavalo extends PecaXadrez{
 		}
 
 		//Cima esquerda
-		p.setValores(p.getLinha() - 2, p.getColuna() - 1);
+		p.setValores(posicao.getLinha() - 2, posicao.getColuna() - 1);
 		if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p)) {
 			mat[p.getLinha()][p.getColuna()] = true;
 		}
@@ -98,3 +98,4 @@ public class Cavalo extends PecaXadrez{
 	}
 
 }
+

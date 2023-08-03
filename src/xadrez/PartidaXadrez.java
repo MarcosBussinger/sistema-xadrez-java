@@ -18,14 +18,20 @@ public class PartidaXadrez {
 		setupInicial();
 	}
 	
-	public PecaXadrez[][] getPecas(){
+	public PecaXadrez[][] getPecas() {
 		PecaXadrez[][] mat = new PecaXadrez[tabuleiro.getLinhas()][tabuleiro.getColunas()];
-		for(int i=0; i<tabuleiro.getLinhas(); i++) {
-			for(int j=0; j<tabuleiro.getColunas(); j++) {
-				mat[i][j] = (PecaXadrez) tabuleiro.peca(i,j);
+		for (int i = 0; i < tabuleiro.getLinhas(); i++) {
+			for (int j = 0; j < tabuleiro.getColunas(); j++) {
+				mat[i][j] = (PecaXadrez) tabuleiro.peca(i, j);
 			}
 		}
 		return mat;
+	}
+	
+	public boolean[][] possiveisMovimentos(PosicaoXadrez posicaoInicial) {
+		Posicao posicao = posicaoInicial.paraPosicao();
+		validarPosicaoOrigem(posicao);
+		return tabuleiro.peca(posicao).possiveisMovimentos();
 	}
 	
 	public PecaXadrez executarJogadaXadrez(PosicaoXadrez posicaoOrigem, PosicaoXadrez posicaoDestino) {//Novo
@@ -70,7 +76,7 @@ public class PartidaXadrez {
         novaPosicao('g', 1, new Cavalo(tabuleiro, Cor.WHITE));
         novaPosicao('h', 1, new Torre(tabuleiro, Cor.WHITE));
         novaPosicao('a', 2, new Peao(tabuleiro, Cor.WHITE));
-        //novaPosicao('b', 2, new Peao(tabuleiro, Cor.WHITE));
+        novaPosicao('b', 2, new Peao(tabuleiro, Cor.WHITE));
         novaPosicao('c', 2, new Peao(tabuleiro, Cor.WHITE));
         novaPosicao('d', 2, new Peao(tabuleiro, Cor.WHITE));
         novaPosicao('e', 2, new Peao(tabuleiro, Cor.WHITE));
