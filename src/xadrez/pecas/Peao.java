@@ -21,16 +21,19 @@ public class Peao extends PecaXadrez{
 		boolean[][] mat = new boolean[getTabuleiro().getLinhas()][getTabuleiro().getColunas()];
 
 		Posicao p = new Posicao(0, 0);
-		Posicao p_ini = new Posicao(1, 0);
 
 		//Acima
-		if (posicao.getLinha() == p_ini.getLinha()) {
+		if (getCor() == Cor.WHITE) {
 			p.setValores(posicao.getLinha() - 1, posicao.getColuna());
 			if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p)) {
 				mat[p.getLinha()][p.getColuna()] = true;
 			}
 			p.setValores(posicao.getLinha() - 2, posicao.getColuna());
-			if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p)) {
+			Posicao p2 = new Posicao(posicao.getLinha() - 1, posicao.getColuna());
+			if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p) && getTabuleiro().existePosicao(p2) && !getTabuleiro().eUmaPeca(p2)) {
+				mat[p.getLinha()][p.getColuna()] = true;
+			}
+			if (getTabuleiro().existePosicao(p) && existePecaOponete(p)) {
 				mat[p.getLinha()][p.getColuna()] = true;
 			}
 		} else {
