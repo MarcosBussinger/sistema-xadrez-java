@@ -21,16 +21,37 @@ public class Peao extends PecaXadrez{
 		boolean[][] mat = new boolean[getTabuleiro().getLinhas()][getTabuleiro().getColunas()];
 
 		Posicao p = new Posicao(0, 0);
+		Posicao p_ini = new Posicao(1, 0);
 
-		// Acima
-		p.setValores(posicao.getLinha() - 1, posicao.getColuna());
-		if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p)) {
-			mat[p.getLinha()][p.getColuna()] = true;
+		//Acima
+		if (posicao.getLinha() == p_ini.getLinha()) {
+			p.setValores(posicao.getLinha() - 1, posicao.getColuna());
+			if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p)) {
+				mat[p.getLinha()][p.getColuna()] = true;
+			}
+			p.setValores(posicao.getLinha() - 2, posicao.getColuna());
+			if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p)) {
+				mat[p.getLinha()][p.getColuna()] = true;
+			}
+		} else {
+			p.setValores(posicao.getLinha() - 1, posicao.getColuna());
+			if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p)) {
+				mat[p.getLinha()][p.getColuna()] = true;
+			}
+			if (getTabuleiro().existePosicao(p) && existePecaOponete(p)) {
+				mat[p.getLinha()][p.getColuna()] = true;
+			}
 		}
-		if (getTabuleiro().existePosicao(p) && existePecaOponete(p)) {
-			mat[p.getLinha()][p.getColuna()] = true;
-		}
-		
 		return mat;
 	}
 }
+
+		//if (p_ini.getLinha() == p.getLinha()) {
+		//	for (int i = 1; i < 3; i++) {
+		//		p.setValores(posicao.getLinha() - i, posicao.getColuna());
+		//		if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p)) {
+		//			mat[p.getLinha()][p.getColuna()] = true;
+		//		}
+		//	}
+		//	p.setValores(0, 0);
+		//}
