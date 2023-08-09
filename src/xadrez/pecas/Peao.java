@@ -30,17 +30,32 @@ public class Peao extends PecaXadrez{
 			}
 			p.setValores(posicao.getLinha() - 2, posicao.getColuna());
 			Posicao p2 = new Posicao(posicao.getLinha() - 1, posicao.getColuna());
-			if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p) && getTabuleiro().existePosicao(p2) && !getTabuleiro().eUmaPeca(p2)) {
+			if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p) && getTabuleiro().existePosicao(p2)&& !getTabuleiro().eUmaPeca(p2) && getContaMovimentos() == 0) {
 				mat[p.getLinha()][p.getColuna()] = true;
 			}
+			p.setValores(posicao.getLinha() - 1, posicao.getColuna() - 1);
+			if (getTabuleiro().existePosicao(p) && existePecaOponete(p)) {
+				mat[p.getLinha()][p.getColuna()] = true;
+			}
+			p.setValores(posicao.getLinha() - 1, posicao.getColuna() + 1);
 			if (getTabuleiro().existePosicao(p) && existePecaOponete(p)) {
 				mat[p.getLinha()][p.getColuna()] = true;
 			}
 		} else {
-			p.setValores(posicao.getLinha() - 1, posicao.getColuna());
+			p.setValores(posicao.getLinha() + 1, posicao.getColuna());
 			if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p)) {
 				mat[p.getLinha()][p.getColuna()] = true;
 			}
+			p.setValores(posicao.getLinha() + 2, posicao.getColuna());
+			Posicao p2 = new Posicao(posicao.getLinha() - 1, posicao.getColuna());
+			if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p) && getTabuleiro().existePosicao(p2)&& !getTabuleiro().eUmaPeca(p2) && getContaMovimentos() == 0) {
+				mat[p.getLinha()][p.getColuna()] = true;
+			}
+			p.setValores(posicao.getLinha() + 1, posicao.getColuna() - 1);
+			if (getTabuleiro().existePosicao(p) && existePecaOponete(p)) {
+				mat[p.getLinha()][p.getColuna()] = true;
+			}
+			p.setValores(posicao.getLinha() + 1, posicao.getColuna() + 1);
 			if (getTabuleiro().existePosicao(p) && existePecaOponete(p)) {
 				mat[p.getLinha()][p.getColuna()] = true;
 			}
@@ -49,12 +64,3 @@ public class Peao extends PecaXadrez{
 	}
 }
 
-		//if (p_ini.getLinha() == p.getLinha()) {
-		//	for (int i = 1; i < 3; i++) {
-		//		p.setValores(posicao.getLinha() - i, posicao.getColuna());
-		//		if (getTabuleiro().existePosicao(p) && !getTabuleiro().eUmaPeca(p)) {
-		//			mat[p.getLinha()][p.getColuna()] = true;
-		//		}
-		//	}
-		//	p.setValores(0, 0);
-		//}
