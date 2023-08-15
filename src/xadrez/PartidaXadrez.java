@@ -43,7 +43,7 @@ public class PartidaXadrez {
 		return (PecaXadrez)pecaCapturada;
 	}
 	
-	private Peca fazerMovimento(Posicao origem, Posicao destino) {//Novo
+	private Peca fazerMovimento(Posicao origem, Posicao destino) {
 		Peca p = tabuleiro.removePeca(origem);
 		((PecaXadrez) p).aumentaContador();
 		Peca pecaCapturada = tabuleiro.removePeca(destino);
@@ -51,7 +51,7 @@ public class PartidaXadrez {
 		return pecaCapturada;
 	}
 	
-	private void validarPosicaoOrigem(Posicao posicao) {//Novo
+	private void validarPosicaoOrigem(Posicao posicao) {
 		if (!tabuleiro.eUmaPeca(posicao)) {
 			throw new XadrezException("Não há peça na posição");
 		}
