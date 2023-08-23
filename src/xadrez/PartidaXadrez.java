@@ -70,7 +70,7 @@ public class PartidaXadrez {
 			throw new XadrezException("Não há peça na posição");
 		}
 		if (jogadorAtual != ((PecaXadrez)tabuleiro.peca(posicao)).getCor()){
-			throw new XadrezException("Apeça escolhida nao é sua!");
+			throw new XadrezException("A peça escolhida nao é sua!");
 		}
 		if (!tabuleiro.peca(posicao).isThereAnyPossibleMove()){
 			throw new XadrezException("Não há movimentos possíveis para a peça selecionada");
