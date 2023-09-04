@@ -3,9 +3,6 @@ package xadrez;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import javax.swing.text.Position;
-
 import tabuleiro.Peca;
 import tabuleiro.Posicao;
 import tabuleiro.Tabuleiro;
@@ -77,7 +74,13 @@ public class PartidaXadrez {
 		}
 
 		check = (testeCheck(oponente(jogadorAtual))) ? true : false;
-		proximaTurno();
+
+		if(testeCheckMate(oponente(jogadorAtual))){
+			checkMate = true;
+		}else{
+			proximaTurno();
+		}
+		
 		return (PecaXadrez)pecaCapturada;
 	}
 	
@@ -153,6 +156,31 @@ public class PartidaXadrez {
 			}
 		}
 		return false;
+	}
+
+	private boolean testeCheckMate (Cor cor){
+		if(!testeCheck(cor)){
+			return false;
+		}
+		List<Peca> list = pecasNoTabuleiro.stream().filter(x -> ((PecaXadrez)x).getCor() == cor).collect(Collectors.toList());
+		for(Peca p: list){
+			boolean[][] mat = p.possiveisMovimentos();
+			for(int i=0; i<tabuleiro.getLinhas();i++){
+				for(int j=0; j<tabuleiro.getColunas();j++){
+					if(mat[i][j]){
+						Posicao inicial = ((PecaXadrez)p).getPosicaoXadrez().paraPosicao();
+						Posicao destino = new Posicao(i, j);
+						Peca pecaCapturada =fazerMovimento(inicial, destino);
+						boolean testCheck = testeCheck(cor);
+						desfazerJogada(inicial, destino, pecaCapturada);
+						if(!testCheck){
+							return false;
+						}
+					}
+				}
+			}
+		}
+		return true;
 	}
 
 	private void novaPosicao(char coluna, int linha, PecaXadrez peca) {
